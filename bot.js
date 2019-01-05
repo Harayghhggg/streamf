@@ -41,7 +41,7 @@ client.on('message', message => {
   if (message.content.startsWith(adminprefix + 'st')) {
     client.user.setGame(argresult, "https://www.twitch.tv/idk");
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  }
+  } else
     if(message.content === adminprefix + "restart") {
       if (!devs.includes(message.author.id)) return;
           message.channel.send(`:warning:️ **restarting by ${message.author.username}**`);
@@ -51,8 +51,27 @@ client.on('message', message => {
         client.destroy();
         child_process.fork(__dirname + "/bot.js");
         console.log(`Successfully Restarted`);
-    }
+    } else
+  if(message.content === adminprefix + "help") {
+    if (!devs.includes(message.author.id)) return;
+      const embed = new Discord.RichEmbed()  
+      .setColor("#000000") 
+      .setDescription(`
+     :gear: Fire Help :gear: 
+
+-pl | playing
+-wt | watching
+-ls | leasing
+-cn | change name
+-ca | change avatar
+-restart | restart
+
+`)
+   message.channel.sendEmbed(embed)
+    
+   }
   
   });
+
 
 client.login(process.env.BOT_TOKEN);

@@ -14,11 +14,11 @@ client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
       
-  if (message.content.startsWith(adminprefix + 'pl')) {
+  if (message.content.startsWith(adminprefix + 'ply')) {
     client.user.setGame(argresult);
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else 
-    if (message.content === (adminprefix + "leave")) {
+    if (message.content === (adminprefix + "leave_server")) {
     message.guild.leave();        
   } else  
   if (message.content.startsWith(adminprefix + 'wt')) {
@@ -64,6 +64,7 @@ client.on('message', message => {
 -ls | leasing
 -cn | change name
 -ca | change avatar
+-leave_server| leave server
 -restart | restart
 
 `)

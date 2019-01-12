@@ -59,7 +59,7 @@ client.on('message', message => {
       .setDescription(`
      :gear: Fire Help :gear: 
 
--pl | playing
+-ply | playing
 -wt | watching
 -ls | leasing
 -cn | change name

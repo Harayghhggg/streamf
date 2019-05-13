@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 const devs = ["319624924769681412"]
 
-const adminprefix = "-";
+const adminprefix = "#";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!devs.includes(message.author.id)) return;
@@ -52,26 +52,5 @@ client.on('message', message => {
         child_process.fork(__dirname + "/bot.js");
         console.log(`Successfully Restarted`);
     } else
-  if(message.content === adminprefix + "help") {
-    if (!devs.includes(message.author.id)) return;
-      const embed = new Discord.RichEmbed()  
-      .setColor("#000000") 
-      .setDescription(`
-     :gear: Fire Help :gear: 
-
--pl | playing
--wt | watching
--ls | leasing
--cn | change name
--ca | change avatar
--restart | restart
-
-`)
-   message.channel.sendEmbed(embed)
-    
-   }
   
-  });
-
-
 client.login(process.env.BOT_TOKEN);
